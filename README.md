@@ -9,6 +9,7 @@ Public website source for GoreeWorks, built as a static Astro site and intended 
 - Public version: `0.1.0`
 - Version name: `Foundation`
 - Production branch: `main`
+- Node.js: `24.21.0`
 
 ## Technology
 
@@ -39,7 +40,9 @@ Connect this repository to Cloudflare Pages with:
 - Build command: `npm run build`
 - Build output directory: `dist`
 
-No Cloudflare runtime adapter is required for the current site because it is statically generated. If server-side rendering, Pages Functions, or Cloudflare bindings are introduced later, the deployment configuration should be reviewed at that time.
+The repository pins Node.js through `.nvmrc`, which Cloudflare Pages reads during builds. No Cloudflare runtime adapter is required for the current site because it is statically generated. If server-side rendering, Pages Functions, or Cloudflare bindings are introduced later, the deployment configuration should be reviewed at that time.
+
+Static Pages responses also use `public/_headers` for additional browser hardening.
 
 ## Structure
 
@@ -49,6 +52,8 @@ src/
   layouts/      Shared page layout and metadata
   pages/        Route entry points
   styles/       Global styling and design tokens
+public/
+  _headers      Cloudflare Pages response headers
 ```
 
 ## Content direction
@@ -58,3 +63,5 @@ The site reflects GoreeWorks' company identity: creative, modern, independent, p
 ## Version control
 
 Source changes are tracked through Git history. Public release numbers and internal development versions are maintained separately in this README and the package metadata.
+
+A GitHub Actions build check runs on pushes to `main` and on pull requests.
