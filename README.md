@@ -1,30 +1,60 @@
-# websites
+# GoreeWorks Websites
 
-## Overview
+Public website source for GoreeWorks, built as a static Astro site and intended for deployment through Cloudflare Pages.
 
-GoreeWorks websites repository. This project contains website-related source files and development resources.
+## Project metadata
 
-## Status
+- Repository: `GoreeWorks/websites`
+- Internal version: `0.2.0-dev.1`
+- Public version: `0.1.0`
+- Version name: `Foundation`
+- Production branch: `main`
 
-Active development. Documentation and implementation details will evolve with the project.
+## Technology
 
-## Features
+- Astro 7
+- Tailwind CSS 4 through the official Vite plugin
+- Static output for Cloudflare Pages
 
-- Website development resources
-- Shared project structure for GoreeWorks web initiatives
+## Development
 
-## Setup
+```bash
+npm install
+npm run dev
+```
 
-Clone the repository and follow project-specific setup instructions as they are added.
+Create a production build with:
 
-## Technology Stack
+```bash
+npm run build
+```
 
-Update this section with the frameworks, languages, and tools used by this project.
+The generated site is written to `dist/`.
 
-## Contributing
+## Cloudflare Pages
 
-Contributions should follow GoreeWorks development practices and repository guidelines.
+Connect this repository to Cloudflare Pages with:
 
-## License
+- Production branch: `main`
+- Build command: `npm run build`
+- Build output directory: `dist`
 
-See the LICENSE file for usage terms.
+No Cloudflare runtime adapter is required for the current site because it is statically generated. If server-side rendering, Pages Functions, or Cloudflare bindings are introduced later, the deployment configuration should be reviewed at that time.
+
+## Structure
+
+```text
+src/
+  components/   Shared site UI
+  layouts/      Shared page layout and metadata
+  pages/        Route entry points
+  styles/       Global styling and design tokens
+```
+
+## Content direction
+
+The site reflects GoreeWorks' company identity: creative, modern, independent, premium, innovative, human, thoughtful, and reliable. Public copy should remain consistent with the authoritative GoreeWorks company documentation.
+
+## Version control
+
+Source changes are tracked through Git history. Public release numbers and internal development versions are maintained separately in this README and the package metadata.

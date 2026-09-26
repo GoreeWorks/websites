@@ -1,7 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Contact | GoreeWorks">
-  <h1>Contact</h1>
-  <p>Contact GoreeWorks for project discussions and collaboration.</p>
+<BaseLayout title="Contact" description="Contact GoreeWorks about products, projects, collaborations, and company inquiries.">
+  <section class="page-hero">
+    <div class="site-shell">
+      <span class="eyebrow">Contact</span>
+      <h1 class="display" style="margin-top:1rem; max-width:62rem">Start with an idea.</h1>
+      <p class="lede">For product, project, collaboration, or general company inquiries, reach GoreeWorks through the official company email.</p>
+      <div class="hero-actions" style="margin-top:2rem">
+        <a class="button primary" href="mailto:goreeworks@gmail.com">goreeworks@gmail.com</a>
+        <a class="button" href="https://github.com/GoreeWorks" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section compact section-rule">
+    <div class="site-shell grid-2">
+      <div><span class="eyebrow">What to include</span><h2 class="heading" style="margin-top:1rem">A little context goes a long way.</h2></div>
+      <div class="prose"><p>Share what you are trying to create, the problem you want to solve, and any useful context about the product, audience, or timeline.</p></div>
+    </div>
+  </section>
 </BaseLayout>

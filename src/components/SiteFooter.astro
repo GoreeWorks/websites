@@ -1,0 +1,24 @@
+<footer class="site-footer">
+  <div class="site-shell footer-grid">
+    <div>
+      <a class="footer-mark" href="/">GoreeWorks</a>
+      <p>Where creativity meets technology.</p>
+    </div>
+    <div class="footer-meta">
+      <a href="https://github.com/GoreeWorks" rel="noreferrer">GitHub</a>
+      <a href="/contact">Contact</a>
+      <span>Public v0.1.0</span>
+      <span>© {new Date().getFullYear()} GoreeWorks</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
+  .footer-grid { display: flex; justify-content: space-between; gap: 2rem; align-items: end; }
+  .footer-mark { font-weight: 800; letter-spacing: -.03em; }
+  p { color: var(--muted); margin: .45rem 0 0; font-size: .9rem; }
+  .footer-meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .55rem 1rem; color: var(--muted); font-size: .82rem; }
+  .footer-meta a:hover { color: var(--text); }
+  @media (max-width: 700px) { .footer-grid { align-items: start; flex-direction: column; } .footer-meta { justify-content: flex-start; } }
+</style>

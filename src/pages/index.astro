@@ -1,18 +1,65 @@
 ---
-const title = 'GoreeWorks';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
+<BaseLayout>
+  <section class="hero">
+    <div class="site-shell hero-copy">
+      <span class="eyebrow">Creative technology + product</span>
+      <h1 class="display">Ideas become<br />products here.</h1>
+      <p class="lede">GoreeWorks builds, designs, and delivers useful products, software, experiences, and ideas—with intention from concept to execution.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="/projects">Explore what we build</a>
+        <a class="button" href="/about">About GoreeWorks</a>
+      </div>
+      <div class="hero-meta" aria-label="Areas of focus">
+        <span>Products</span><span>Software</span><span>Design</span><span>Commerce</span><span>Publishing</span>
+      </div>
+    </div>
+  </section>
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-    <meta name="description" content="GoreeWorks digital platforms and technology initiatives." />
-  </head>
-  <body>
-    <main>
-      <h1>GoreeWorks</h1>
-      <p>Building technology solutions, digital platforms, and innovative projects.</p>
-    </main>
-  </body>
-</html>
+  <section class="section section-rule">
+    <div class="site-shell">
+      <p class="statement">Built around a simple mission: create things that are <em>useful</em>, meaningful, and thoughtfully designed.</p>
+    </div>
+  </section>
+
+  <section class="section section-rule">
+    <div class="site-shell">
+      <div class="grid-2">
+        <div>
+          <span class="eyebrow">What we make</span>
+          <h2 class="heading" style="margin-top:1rem">One company.<br />Many forms of creation.</h2>
+        </div>
+        <p class="lede" style="margin:0">GoreeWorks spans software, digital products, physical products, publishing resources, and creative media. The common thread is thoughtful creation backed by practical technology.</p>
+      </div>
+      <div class="grid-4" style="margin-top:3rem">
+        <article class="card"><span class="index">01</span><h3>Software</h3><p>Applications, websites, internal tools, and digital systems built to solve real problems.</p></article>
+        <article class="card"><span class="index">02</span><h3>Products</h3><p>Digital and physical products shaped by usefulness, clarity, and intentional design.</p></article>
+        <article class="card"><span class="index">03</span><h3>Commerce</h3><p>Customer experiences, ecommerce, and product systems designed as connected experiences.</p></article>
+        <article class="card"><span class="index">04</span><h3>Publishing</h3><p>Resources and creative media that turn ideas and knowledge into tangible outcomes.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-rule">
+    <div class="site-shell grid-2">
+      <div>
+        <span class="eyebrow">Ownership philosophy</span>
+        <h2 class="heading" style="margin-top:1rem">Build more.<br />Own more.</h2>
+      </div>
+      <div class="prose">
+        <p>GoreeWorks aims to build and control more of its own websites, applications, infrastructure, customer systems, commerce systems, and internal tools.</p>
+        <p>That ownership creates room for deeper customization, stronger independence, and more possibilities for what comes next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="site-shell callout">
+      <span class="eyebrow">The next chapter</span>
+      <h2 class="heading" style="margin-top:1rem; max-width:55rem">Create better things. Build better systems.</h2>
+      <p class="lede" style="margin:1.25rem 0 1.75rem">GoreeWorks focuses on products, creativity, commerce, software, digital experiences, physical goods, and publishing—working alongside GoreeCloud's focus on privacy, security, infrastructure, identity, and platform technology.</p>
+      <a class="button primary" href="/about">Read the story</a>
+    </div>
+  </section>
+</BaseLayout>

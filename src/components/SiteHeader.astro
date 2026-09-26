@@ -1,0 +1,30 @@
+---
+const pathname = Astro.url.pathname;
+const nav = [
+  ['About', '/about'],
+  ['Projects', '/projects'],
+  ['Capabilities', '/services'],
+  ['Contact', '/contact'],
+];
+---
+<header class="site-header">
+  <div class="site-shell header-inner">
+    <a class="wordmark" href="/" aria-label="GoreeWorks home">Goree<span>Works</span></a>
+    <nav aria-label="Primary navigation">
+      {nav.map(([label, href]) => (
+        <a href={href} aria-current={pathname === href ? 'page' : undefined}>{label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,.07); background: rgba(9,10,12,.78); backdrop-filter: blur(18px); }
+  .header-inner { min-height: 4.6rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .wordmark { font-size: 1.08rem; font-weight: 820; letter-spacing: -.035em; }
+  .wordmark span { color: var(--accent); }
+  nav { display: flex; gap: .25rem; align-items: center; }
+  nav a { color: #b7bab5; border-radius: 999px; padding: .48rem .72rem; font-size: .9rem; font-weight: 650; transition: color .15s ease, background .15s ease; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--text); background: rgba(255,255,255,.06); }
+  @media (max-width: 680px) { nav a { padding-inline: .48rem; font-size: .8rem; } nav a:nth-child(3) { display: none; } }
+</style>

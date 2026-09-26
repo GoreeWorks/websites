@@ -1,6 +1,7 @@
 {
   "name": "goreeworks-websites",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -8,8 +9,8 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/tailwind": "latest",
-    "astro": "latest",
-    "tailwindcss": "latest"
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.3.5",
+    "tailwindcss": "4.3.3"
   }
 }

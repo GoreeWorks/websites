@@ -1,25 +1,30 @@
 ---
-const { title = 'GoreeWorks', description = 'GoreeWorks digital projects and services.' } = Astro.props;
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const {
+  title = 'GoreeWorks',
+  description = 'GoreeWorks is a creative technology and product company building useful, meaningful, thoughtfully designed products, software, experiences, and ideas.',
+} = Astro.props;
+const pageTitle = title === 'GoreeWorks' ? title : `${title} — GoreeWorks`;
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090a0c" />
     <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">GoreeWorks</a>
-        <a href="/about">About</a>
-        <a href="/projects">Projects</a>
-        <a href="/services">Services</a>
-        <a href="/contact">Contact</a>
-      </nav>
-    </header>
-    <main><slot /></main>
-    <footer>© {new Date().getFullYear()} GoreeWorks</footer>
+    <SiteHeader />
+    <main class="site-main"><slot /></main>
+    <SiteFooter />
   </body>
 </html>
