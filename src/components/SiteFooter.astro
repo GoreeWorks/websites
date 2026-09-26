@@ -1,10 +1,13 @@
 <footer class="site-footer">
   <div class="site-shell footer-grid">
-    <div>
-      <a class="footer-mark" href="/">GoreeWorks</a>
-      <p>Where creativity meets technology.</p>
+    <div class="footer-brand">
+      <span class="footer-mark"><img src="/brand/goreeworks-mark.svg" alt="" width="42" height="42" /></span>
+      <div>
+        <strong>GoreeWorks</strong>
+        <p class="mo-type-supporting">Where creativity meets technology.</p>
+      </div>
     </div>
-    <div class="footer-meta">
+    <div class="footer-meta mo-type-supporting">
       <a href="https://github.com/GoreeWorks" rel="noreferrer">GitHub</a>
       <a href="/contact">Contact</a>
       <span>Public v0.1.0</span>
@@ -14,11 +17,13 @@
 </footer>
 
 <style>
-  .site-footer { border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; }
-  .footer-grid { display: flex; justify-content: space-between; gap: 2rem; align-items: end; }
-  .footer-mark { font-weight: 800; letter-spacing: -.03em; }
-  p { color: var(--muted); margin: .45rem 0 0; font-size: .9rem; }
-  .footer-meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .55rem 1rem; color: var(--muted); font-size: .82rem; }
-  .footer-meta a:hover { color: var(--text); }
-  @media (max-width: 700px) { .footer-grid { align-items: start; flex-direction: column; } .footer-meta { justify-content: flex-start; } }
+  .site-footer { padding-block: var(--mo-space-xl); border-block-start: 1px solid var(--mo-sem-outline); background: var(--mo-sem-surface-subtle); }
+  .footer-grid { display: flex; justify-content: space-between; gap: var(--mo-space-xl); align-items: center; }
+  .footer-brand { display: flex; align-items: center; gap: var(--mo-space-md); }
+  .footer-brand p { margin: .2rem 0 0; }
+  .footer-mark { inline-size: 2.65rem; block-size: 2.65rem; display: grid; place-items: center; padding: .25rem; background: #fff; border: 1px solid var(--mo-sem-outline); border-radius: var(--mo-shape-medium); }
+  .footer-mark img { inline-size: 100%; block-size: 100%; }
+  .footer-meta { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--mo-space-sm) var(--mo-space-md); }
+  .footer-meta a { color: var(--mo-sem-link); }
+  @media (max-width: 720px) { .footer-grid { align-items: flex-start; flex-direction: column; } .footer-meta { justify-content: flex-start; } }
 </style>

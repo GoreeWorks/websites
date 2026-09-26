@@ -10,21 +10,32 @@ const {
 const pageTitle = title === 'GoreeWorks' ? title : `${title} — GoreeWorks`;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-mo-density="comfortable">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#090a0c" />
+    <meta name="theme-color" content="#fbfbfe" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111116" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="description" content={description} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="/brand/goreeworks-mark.svg" type="image/svg+xml" />
     <title>{pageTitle}</title>
+    <script is:inline>
+      (() => {
+        let saved = null;
+        try { saved = localStorage.getItem('goreeworks-theme'); } catch {}
+        const preferred = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.moTheme = saved === 'dark' || saved === 'light' ? saved : preferred;
+      })();
+    </script>
   </head>
   <body>
     <SiteHeader />
-    <main class="site-main"><slot /></main>
+    <main id="main-content" class="site-main"><slot /></main>
     <SiteFooter />
   </body>
 </html>

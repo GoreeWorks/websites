@@ -7,24 +7,71 @@ const nav = [
   ['Contact', '/contact'],
 ];
 ---
+<a class="skip-link mo-button" data-mo-variant="primary" href="#main-content">Skip to content</a>
 <header class="site-header">
   <div class="site-shell header-inner">
-    <a class="wordmark" href="/" aria-label="GoreeWorks home">Goree<span>Works</span></a>
-    <nav aria-label="Primary navigation">
-      {nav.map(([label, href]) => (
-        <a href={href} aria-current={pathname === href ? 'page' : undefined}>{label}</a>
-      ))}
-    </nav>
+    <a class="brand" href="/" aria-label="GoreeWorks home">
+      <span class="brand-mark"><img src="/brand/goreeworks-mark.svg" alt="" width="36" height="36" /></span>
+      <span>GoreeWorks</span>
+    </a>
+    <div class="header-actions">
+      <nav class="mo-nav" aria-label="Primary navigation">
+        {nav.map(([label, href]) => (
+          <a class="mo-nav-item" href={href} aria-current={pathname === href ? 'page' : undefined}>{label}</a>
+        ))}
+      </nav>
+      <button class="mo-button theme-toggle" data-mo-variant="ghost" type="button" id="theme-toggle" aria-label="Switch color theme">
+        <span aria-hidden="true">◐</span>
+        <span class="theme-label">Theme</span>
+      </button>
+    </div>
   </div>
 </header>
 
+<script>
+  const button = document.querySelector('#theme-toggle');
+  const label = button?.querySelector('.theme-label');
+
+  const currentTheme = () => document.documentElement.dataset.moTheme === 'dark' ? 'dark' : 'light';
+  const updateLabel = () => {
+    if (!button || !label) return;
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    label.textContent = next === 'dark' ? 'Dark' : 'Light';
+    button.setAttribute('aria-label', `Switch to ${next} theme`);
+  };
+
+  updateLabel();
+  button?.addEventListener('click', () => {
+    const next = currentTheme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.moTheme = next;
+    try { localStorage.setItem('goreeworks-theme', next); } catch {}
+    updateLabel();
+  });
+</script>
+
 <style>
-  .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,.07); background: rgba(9,10,12,.78); backdrop-filter: blur(18px); }
-  .header-inner { min-height: 4.6rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .wordmark { font-size: 1.08rem; font-weight: 820; letter-spacing: -.035em; }
-  .wordmark span { color: var(--accent); }
-  nav { display: flex; gap: .25rem; align-items: center; }
-  nav a { color: #b7bab5; border-radius: 999px; padding: .48rem .72rem; font-size: .9rem; font-weight: 650; transition: color .15s ease, background .15s ease; }
-  nav a:hover, nav a[aria-current="page"] { color: var(--text); background: rgba(255,255,255,.06); }
-  @media (max-width: 680px) { nav a { padding-inline: .48rem; font-size: .8rem; } nav a:nth-child(3) { display: none; } }
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 50;
+    padding-block: var(--mo-space-sm);
+    background: color-mix(in srgb, var(--mo-sem-background) 88%, transparent);
+    border-block-end: 1px solid color-mix(in srgb, var(--mo-sem-outline) 55%, transparent);
+    backdrop-filter: blur(18px);
+  }
+  .header-inner { min-block-size: 3.75rem; display: flex; align-items: center; justify-content: space-between; gap: var(--mo-space-md); }
+  .brand { display: inline-flex; align-items: center; gap: .7rem; color: var(--mo-sem-on-surface); font-weight: var(--mo-type-weight-bold); letter-spacing: -.02em; text-decoration: none; white-space: nowrap; }
+  .brand-mark { inline-size: 2.35rem; block-size: 2.35rem; display: grid; place-items: center; padding: .25rem; background: #fff; border: 1px solid var(--mo-sem-outline); border-radius: var(--mo-shape-medium); box-shadow: var(--mo-elevation-1); }
+  .brand-mark img { display: block; inline-size: 100%; block-size: 100%; }
+  .header-actions { display: flex; align-items: center; gap: var(--mo-space-sm); min-inline-size: 0; }
+  .mo-nav { padding: .25rem; border-radius: var(--mo-shape-pill); overflow-x: auto; scrollbar-width: none; }
+  .mo-nav::-webkit-scrollbar { display: none; }
+  .mo-nav-item { min-block-size: 2.5rem; border-radius: var(--mo-shape-pill); white-space: nowrap; }
+  .theme-toggle { min-block-size: 2.75rem; border-radius: var(--mo-shape-pill); }
+  @media (max-width: 760px) {
+    .header-inner { align-items: flex-start; flex-direction: column; }
+    .header-actions { inline-size: 100%; }
+    .mo-nav { flex: 1; }
+    .theme-toggle .theme-label { display: none; }
+  }
 </style>
