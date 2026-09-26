@@ -5,7 +5,7 @@ Public website source for GoreeWorks, built as a static Astro site for deploymen
 ## Project metadata
 
 - Repository: `GoreeWorks/websites`
-- Internal version: `0.3.0-dev.1`
+- Internal version: `0.3.0-dev.2`
 - Public version: `0.1.0`
 - Version name: `Material One Integration`
 - Production branch: `main`
@@ -18,10 +18,19 @@ Public website source for GoreeWorks, built as a static Astro site for deploymen
 All interface work follows the GoreeWorks Material One standard.
 
 - Authoritative repository: `GoreeWorks/material-one`
-- Pinned website dependency: `f826dd6c09c55fd17eddaf213609b781c64e2c55`
+- Validated source commit: `f826dd6c09c55fd17eddaf213609b781c64e2c55`
 - Website usage: semantic color tokens, responsive components, accessible typography, adaptive layout behavior, interaction states, density and reduced-motion behavior
+- Deployment model: controlled vendoring of the exact CSS primitives used by the website
 
-The dependency is pinned to an exact validated Material One commit so production builds remain reproducible. Update the pin deliberately after validating a newer Material One revision.
+Vendored Material One files live under `src/styles/material-one/`. Each vendored file records its authoritative source path, source commit, and source blob SHA. Material One remains authoritative; the copies in this repository exist only because the Material One monorepo currently contains unpublished workspace dependencies and cannot be installed as a production Git dependency.
+
+Current source blobs:
+
+- `tokens/css/material-one.css`: `2842d981890cdf5ada7cce971fb87cac3bd164d6`
+- `packages/components/css/material-one-components.css`: `d209b7c0a48cbbef333229fd7446ccb9201fc24f`
+- `packages/typography/css/material-one-typography.css`: `6672de5757b682ff15b6684acf463cc4fdfd1358`
+
+Update these copies deliberately when adopting a newer validated Material One revision.
 
 ### Brand assets
 
@@ -73,7 +82,9 @@ src/
   components/   Shared site UI
   layouts/      Shared page layout and metadata
   pages/        Route entry points
-  styles/       Material One adoption and GoreeWorks product layer
+  styles/
+    material-one/  Controlled deployment copies of authoritative Material One CSS
+    global.css     GoreeWorks product layer using Material One semantics
 public/
   brand/        Deployment copies of authoritative brand assets
   _headers      Cloudflare Pages response headers

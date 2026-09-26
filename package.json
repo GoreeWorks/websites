@@ -12,7 +12,6 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "7.3.5",
-    "material-one": "github:GoreeWorks/material-one#f826dd6c09c55fd17eddaf213609b781c64e2c55"
+    "astro": "7.3.5"
   }
 }

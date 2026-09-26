@@ -1,5 +1,5 @@
-@import "material-one/packages/components/css/material-one-components.css";
-@import "material-one/packages/typography/css/material-one-typography.css";
+@import "./material-one/packages/components/css/material-one-components.css";
+@import "./material-one/packages/typography/css/material-one-typography.css";
 
 :root {
   color-scheme: light;
@@ -65,9 +65,7 @@ img { max-inline-size: 100%; }
 }
 .skip-link:focus { transform: translateY(0); }
 
-.section {
-  padding-block: var(--gw-section-space);
-}
+.section { padding-block: var(--gw-section-space); }
 .section-rule { border-block-start: 1px solid var(--mo-sem-outline); }
 .section-compact { padding-block: clamp(3rem, 6vw, 5rem); }
 
@@ -160,19 +158,11 @@ img { max-inline-size: 100%; }
 }
 .callout .mo-type-large-title { margin-block-end: var(--mo-space-md); }
 
-.page-hero {
-  padding-block: clamp(4.5rem, 9vw, 7rem) clamp(3rem, 6vw, 5rem);
-}
+.page-hero { padding-block: clamp(4.5rem, 9vw, 7rem) clamp(3rem, 6vw, 5rem); }
 .page-hero .mo-type-display { margin-block-end: var(--mo-space-lg); }
 
-.prose {
-  max-inline-size: 72ch;
-}
-.prose p {
-  color: var(--mo-sem-on-surface-muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
+.prose { max-inline-size: 72ch; }
+.prose p { color: var(--mo-sem-on-surface-muted); font-size: 1.05rem; line-height: 1.7; }
 .prose p + p { margin-block-start: var(--mo-space-lg); }
 
 .tag-list { display: flex; flex-wrap: wrap; gap: var(--mo-space-sm); }
